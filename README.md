@@ -13,7 +13,7 @@ The following command will extract promoter sequences from the user provided gen
 Rscript ./promoter_motif_analysis/extract_proseq.R [geneome.fa] [annotation.gff] [promoter_length]
 ~~~
 
-**objects**  
+**Arguments**  
 genome.fa: genome sequunce in fasta format  
 annotation.gff: structrual annotaion file  
 promoter/length: integer defining promoter_length
