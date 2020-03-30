@@ -16,4 +16,4 @@ Rscript ./promoter_motif_analysis/extract_proseq.R [geneome.fa] [annotation.gff]
 **Arguments**  
 genome.fa: genome sequunce in fasta format  
 annotation.gff: structrual annotaion file  
-promoter/length: integer defining promoter_length
+promoter_length: integer defining promoter_length
