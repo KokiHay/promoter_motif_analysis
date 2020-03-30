@@ -18,12 +18,13 @@ library(stringr,quietly = T)
 library(Biostrings,quietly = T)
 library(seqinr,quietly = T)
 
-files = commandArgs(trailingOnly = TRUE)  ## the user should provide 2 files
-                                          ## the order should be .fa then .gff3
+files = commandArgs(trailingOnly = TRUE)  ## the user should provide 2 files and one integer
+                                          ## the order should be .fa , .gff3 , and promoter length
 
 ######  enter necessary information  ##############
 in_f1 = files[1]       #input genome seq (fasta format)
 in_f2 = files[2]      #input gff file (gff3)
+in_p1 = as.numeric(files[3])
 
 #### prepare the genome ####
 gen_seq = readDNAStringSet(in_f1, format="fasta")    # read text file as fasta
@@ -33,7 +34,7 @@ gen_seq = as.matrix(gen_seq)                         # convert into matrix
 # parameters to use #
 param1 = rownames(gen_seq) ##caution!##this doesn't necessarilly correspond to chromosome number
 param2 = param1  # enter from which chromosome you want the promoter sequece
-pro_len = 2000                                                  #define promoter length
+pro_len = in_p1                                                  #define promoter length
 out_f = paste("pro_seq_f_cds",Sys.Date(),".fa",sep = "_")                 #forward strand output file name
 out_r = paste("pro_seq_r_cds",Sys.Date(),".fa",sep = "_")                 #reverse strand output file name
 out_r_revcomp = paste("pro_seq_r_rev_comp_cds",Sys.Date(),sep = "_")  #reverse complement of reverse strand output file name
